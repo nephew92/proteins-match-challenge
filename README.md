@@ -38,14 +38,14 @@ O intuito é buscar no dataset B as possíveis referêcias para proteínas do da
 
  - `s2_find_match`: 
  Realiza a comparação de dois conjutos de palavras chaves (`keys_a` e `keys_b`), segundo as regras de [__similaridade__](#similaridade) . `keys_a` e `keys_b` são referentes as palavras chaves das proteínas do dataset A e B, respectivamente. Retorna um valor entre 0 e 1 representando a similaridade entre elas, sendo:
- - - 0: nada similar e; 
- - - 1: totalmente similar (ou uma está contida na outra). 
+     - 0: nada similar e; 
+     - 1: totalmente similar (ou uma está contida na outra). 
 
  - `s3_compare_match`:
  Aplica as regras de desempate entre as keywords do dataset (keys_a e keys_b), segundo as regras de [__desempate__](#desempate). Retorna um valor inteiro que representa o pareamento de ambas. Sendo:
-- - 0: totalmente pareadas;
-- - menor que 0: keys_a tem maior valor que keys_b e;
-- - maior que 0: keys_a tem menor valor que keys_b;
+     - 0: totalmente pareadas;
+     - menor que 0: keys_a tem maior valor que keys_b e;
+     - maior que 0: keys_a tem menor valor que keys_b;
 
 ## O que se espera
 - O problema deve ser resolvido utilizando a linguagem de programação Python (versão 3.5 ou mais recente). 
