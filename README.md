@@ -25,7 +25,7 @@ O intuito é buscar no dataset B as possíveis referêcias para proteínas do da
 ### Desempate
 - Proteínas que contenham a palavra `putative` são menos importante do que as que não possuem.
 - Proteínas que contenham a palavra `predicted` são menos importante do que as que não possuem.
-- Proteínas que contenham a palavra `putative` são menos importante do que as que possuem a palavra 'predicted'.
+- Proteínas que contenham a palavra `putative` são menos importante do que as que possuem a palavra `predicted`.
 
 
 ## Funções a serem implementadas
@@ -34,7 +34,7 @@ O intuito é buscar no dataset B as possíveis referêcias para proteínas do da
  Carrega um arquivo no formato de tabela a partir do disco rígido e retorna os nomes das proteínas de uma determinada coluna do arquivo.
 
  - `s1_pre_process_name`:
- Realiza o pré-processamento do nome de protínas, segundo as regras de [__pré-similaridade__](#pre-similaridade) especificadas acima. Retorna um conjunto de palavras chaves que representa a proteína.
+ Realiza o pré-processamento do nome de protínas, segundo as regras de [__pré-similaridade__](#pré-similaridade) especificadas acima. Retorna um conjunto de palavras chaves que representa a proteína.
 
  - `s2_find_match`: 
  Realiza a comparação de dois conjutos de palavras chaves (`keys_a` e `keys_b`), segundo as regras de [__similaridade__](#similaridade) . `keys_a` e `keys_b` são referentes as palavras chaves das proteínas do dataset A e B, respectivamente. Retorna um valor entre 0 e 1 representando a similaridade entre elas, sendo:
