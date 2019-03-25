@@ -25,7 +25,7 @@ O intuito é buscar no dataset B as possíveis referêcias para proteínas do da
 ### Desempate
 - Proteínas que contenham a palavra `putative` são menos importante do que as que não possuem.
 - Proteínas que contenham a palavra `predicted` são menos importante do que as que não possuem.
-- Proteínas que contenham a palavra `putative` são menos importante do que as que possuem a palavra `predicted`.
+- Proteínas que contenham a palavra `predicted` são menos importante do que as que possuem a palavra `putative`.
 
 
 ## Funções a serem implementadas
