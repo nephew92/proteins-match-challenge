@@ -6,6 +6,7 @@ file_to_test = 'test/file_to_test.tsv'
 class LoadFileTests(unittest.TestCase):
 	"""docstring for RoutineTests"""
 	def setUp(self):
+		print(self)
 		self.result = rt.s0_load_file(file_to_test,1,'\t')
 
 	def test__return_a_list_based(self, error='Não retorna um list-based'):
@@ -20,6 +21,8 @@ class LoadFileTests(unittest.TestCase):
 
 class PreProcessName(unittest.TestCase):
 	"""docstring for PreProcessName"""
+	def setUp(self):
+		print(self)
 
 	def test__return_list_based(self, error='Não retorna um list-based'):
 		result = rt.s1_pre_process_name('protein name')
@@ -54,8 +57,13 @@ class PreProcessName(unittest.TestCase):
 class FindMatch(unittest.TestCase):
 	"""docstring for FindMatch"""
 	def setUp(self):
+		print(self)
 		self.keys_a = ('foo', 'bar', 'foobar')
 		self.keys_b = ('barfoo','bar')
+
+	def test__return_float_value(self, error='Não retorna um valor decimal'):
+		result = rt.s2_find_match(self.keys_a,self.keys_b)
+		self.assertIsInstance(result,float,msg=error)
 
 	def test__return_value_between_zero_and_one(self, error='Valor retornado não está entre 0 e 1'):
 		result = rt.s2_find_match(self.keys_a,self.keys_b)
@@ -80,8 +88,15 @@ class FindMatch(unittest.TestCase):
 		self.assertEqual(rt.s2_find_match(('foo', 'bar', 'foobar'),('barfoo','bar','barbar')), 1.0/3, msg=error)
 		self.assertEqual(rt.s2_find_match(('foo', 'foobar'),('barfoo','bar','foo','barbar')), 0.5, msg=error)
 
-class CompareMatches(object):
+class CompareMatches(unittest.TestCase):
 	"""docstring for CompareMatches"""
+	def setUp(self):
+		print(self)
+
+	def test__return_integer_value(self, error='Não retorna um valor inteiro'):
+		result = rt.s2_find_match('','')
+		self.assertIsInstance(result,int,msg=error)
+
 	def test__example_cases(self, error='Não passou nos casos de exemplo'):
 		p = 'putative'
 		q = 'predicted'
