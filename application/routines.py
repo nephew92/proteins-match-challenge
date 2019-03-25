@@ -38,6 +38,6 @@ def s3_compare_match(keys_a,keys_b):
 			keys_a [list or set]: the keywords in the protein name A.
 			keys_b [list or set]: the keywords in the protein name B.
 		return:
-			[float]: a value that represents what keywords-set is more important. Return negative value if keys_a are more importante than keys_b, positive if keys_b are more importante than keys_a, and 0 if both are equally.
+			[float]: a value that represents which set of keywords is most important. Returns the negative value if keys_a is more important than keys_b, positive if keys_b are more important than keys_a and 0 if both are equally.
 	'''
 	raise Exception('not implemented yet')

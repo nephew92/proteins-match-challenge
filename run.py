@@ -1,3 +1,5 @@
+#!/usr/bin/python3.6
+
 import sys
 
 def run_test():
