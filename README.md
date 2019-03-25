@@ -51,3 +51,15 @@ O intuito é buscar no dataset B as possíveis referêcias para proteínas do da
 - O problema deve ser resolvido utilizando a linguagem de programação Python (versão 3.5 ou mais recente). 
 - Devem ser utilizadas apenas funções ou módulos nativos do Python, incluindo [Built-in Functions](https://docs.python.org/3.6/library/functions.html), [String Methods](https://docs.python.org/3.6/library/stdtypes.html#string-methods), [CSV File Reading and Writing](https://docs.python.org/2/library/csv.html?highlight=csv#module-csv) e [Regular expression operations](https://docs.python.org/3.6/library/re.html?#module-re). 
 - Espera-se que sejam propostas abordagens escaláveis para o processamento de um grande input de dados . (_Dica: a partir da versão 3, a funções `map` retorna um iterator ao invés de uma lista, o que pode tornar sua utilização mais otimizada_).
+
+# Execução
+
+Para testar a respostas execute no diretório raiz:
+```shell
+python3.x run.py test
+```
+
+Para executar a aplicação, execute:
+```shell
+python3.x run.py
+```
