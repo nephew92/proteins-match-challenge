@@ -1,4 +1,4 @@
-# Proteins match challange
+# Proteins match challenge
 
 ## Definição do problema
 
