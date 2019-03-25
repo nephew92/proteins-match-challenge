@@ -28,21 +28,27 @@ class PreProcessName(unittest.TestCase):
 	def test__ignore_hypothetical(self, error='Não ignora a palavra `hypothetical`'):
 		result = rt.s1_pre_process_name('hypothetical protein name')
 		self.assertFalse(list(result),msg=error)
+		result = rt.s1_pre_process_name('protein hypothetical name')
+		self.assertFalse(list(result),msg=error)
+		result = rt.s1_pre_process_name('protein name hypothetical')
+		self.assertFalse(list(result),msg=error)
+		result = rt.s1_pre_process_name('protein name-hypothetical')
+		self.assertFalse(list(result),msg=error)
 
 	def test__ignore_words_less_than_three_characters(self, error='Não ignora palavras com 3 ou menos caracteres'):
-		result = rt.s1_pre_process_name('the protein of name p')
+		result = rt.s1_pre_process_name('the protein of name p 52 6 s5 8e 589 dae fg5')
 		self.assertSetEqual(set(result),set(['protein','name']),msg=error)
 
 	def test__ignore_alphanumeric_words(self, error='Não ignora palavras alfanuméricas'):
-		result = rt.s1_pre_process_name('protein name fr43fg 5223')
+		result = rt.s1_pre_process_name('protein name fr43fg 5223 4f4r4s d44e4e4a sddeas2 5dsddf')
 		self.assertSetEqual(set(result),set(['protein','name','5223']),msg=error)
 
 	def test__ignore_especial_character(self, error='Não ignora caracteres especiais'):
-		result = rt.s1_pre_process_name('protein name / * _ 3 + . .;4 ')
+		result = rt.s1_pre_process_name('protein name / * _ 3 + . .;4 ;;][')
 		self.assertSetEqual(set(result),set(['protein','name']),msg=error)
 
 	def test__ignore_words_in_brackets(self, error='Não ignora palavras dentro de colchetes'):
-		result = rt.s1_pre_process_name('protein name [protein name]')
+		result = rt.s1_pre_process_name('protein name [protein gas name]')
 		self.assertSetEqual(set(result),set(['protein','name']),msg=error)
 
 class FindMatch(unittest.TestCase):
@@ -79,6 +85,8 @@ class CompareMatches(object):
 	def test__example_cases(self, error='Não passou nos casos de exemplo'):
 		p = 'putative'
 		q = 'predicted'
+
+		# When the first one is better than the second one
 		self.assertLess(rt.s3_compare_match("",p+q), 0, msg=error)
 		self.assertLess(rt.s3_compare_match("",q+p), 0, msg=error)
 		self.assertLess(rt.s3_compare_match("",q), 0, msg=error)
@@ -88,6 +96,8 @@ class CompareMatches(object):
 		self.assertLess(rt.s3_compare_match(q,q+p), 0, msg=error)
 		self.assertLess(rt.s3_compare_match("",p), 0, msg=error)
 		self.assertLess(rt.s3_compare_match(q,p+q), 0, msg=error)
+
+		# When both are equals
 		self.assertEqual(rt.s3_compare_match(p,p), 0, msg=error)
 		self.assertEqual(rt.s3_compare_match(q+p,p+q), 0, msg=error)
 		self.assertEqual(rt.s3_compare_match(p+q,q+p), 0, msg=error)
@@ -95,6 +105,8 @@ class CompareMatches(object):
 		self.assertEqual(rt.s3_compare_match("",""), 0, msg=error)
 		self.assertEqual(rt.s3_compare_match(p+q,p+q), 0, msg=error)
 		self.assertEqual(rt.s3_compare_match(q+p,q+p), 0, msg=error)
+
+		# When the second one is better than the first one
 		self.assertGreater(rt.s3_compare_match(p+q,q), 0, msg=error)
 		self.assertGreater(rt.s3_compare_match(q+p,q), 0, msg=error)
 		self.assertGreater(rt.s3_compare_match(p,""), 0, msg=error)
